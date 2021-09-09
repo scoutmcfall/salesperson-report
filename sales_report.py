@@ -11,9 +11,9 @@ for line in f:#for each line in the file, split it up by |
     
     for i in range(len(entries)-2):#populate the dictionary with names as keys
         key= entries[0]
-        melon_dict[key] = melon_dict.get(key, []) 
-        melon_dict[key].append(float(entries[1]))
-        melon_dict[key].append(int(entries[2]))
+        melon_dict[key] = melon_dict.get(key, []) #search the dict for names and put a list if no name
+        melon_dict[key].append(float(entries[i+1]))#if the name is in there, put the next two items in entries
+        melon_dict[key].append(int(entries[i+2]))#what if there's more entries?
        
 for name, value in melon_dict.items():
     total_cost = sum(value[0::2])
